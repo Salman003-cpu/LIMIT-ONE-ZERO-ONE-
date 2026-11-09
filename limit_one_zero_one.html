@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>LIMIT ONE ZERO ONE — Manga</title>
+<style>
+:root{--bg:#101010;--panel:#191919;--panel2:#222;--text:#f4f4f4;--muted:#aaa;--accent:#e63946;--line:#303030}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+header{position:sticky;top:0;z-index:5;background:#101010ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1120px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:900;letter-spacing:2px;font-size:19px}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:20px;color:#ddd;font-size:13px}.navlinks a:hover{color:var(--accent)}
+.wrap{max-width:1120px;margin:auto;padding:28px 22px 70px}
+.hero{display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center;background:linear-gradient(120deg,#242424,#151515);border:1px solid var(--line);border-radius:14px;padding:26px}
+.cover{height:340px;border-radius:9px;background:#292929;border:1px dashed #666;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#aaa;text-align:center}
+.cover img{width:100%;height:100%;object-fit:cover}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:2px;font-size:11px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:9px 0 14px;letter-spacing:1px}
+.description{color:#c4c4c4;max-width:650px}.meta{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.tag{font-size:11px;border:1px solid #555;border-radius:20px;padding:5px 10px;color:#ddd}
+.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:6px;padding:11px 17px;font-weight:800;cursor:pointer;background:var(--accent);color:white}.btn.secondary{background:#333;border:1px solid #555}.btn:hover{filter:brightness(1.12)}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:34px 0 14px;gap:12px}.section-head h2{font-size:20px;margin:0}.muted{color:var(--muted);font-size:13px}
+.chapter-tools{display:flex;gap:8px;flex-wrap:wrap}.chapter-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.chapter{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.chapter:hover{border-color:var(--accent);background:#202020}.chapter small{display:block;color:var(--muted);font-size:11px}.chapter strong{font-size:14px}
+.empty{padding:26px;text-align:center;background:var(--panel);border:1px dashed #555;border-radius:8px;color:var(--muted);grid-column:1/-1}
+.reader{display:none;margin-top:28px}.reader.active{display:block}.readerbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.pages{background:#080808;border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:180px}
+.pages img{display:block;width:min(100%,850px);height:auto}.page-placeholder{padding:55px 20px;color:#aaa;text-align:center}
+.admin{margin-top:34px;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.admin h2{margin:0 0 5px}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.field{padding:14px;background:#202020;border:1px solid var(--line);border-radius:8px}.field label{display:block;font-weight:700;margin-bottom:8px}.field input[type=text],.field input[type=number]{width:100%;padding:10px;border-radius:5px;border:1px solid #555;background:#111;color:white;margin-bottom:9px}
+input[type=file]{max-width:100%;color:#bbb;font-size:12px}.hint{font-size:11px;color:var(--muted);margin:8px 0 0}
+footer{text-align:center;color:#777;border-top:1px solid var(--line);padding:25px;font-size:12px;margin-top:35px}
+@media(max-width:700px){.nav{padding:13px 16px}.navlinks{gap:12px;font-size:12px}.wrap{padding:18px 14px 50px}.hero{grid-template-columns:1fr;padding:16px;gap:18px}.cover{height:270px;max-width:220px;width:100%;margin:auto}.chapter-list,.admin-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}h1{text-align:center}.hero-copy{text-align:center}.hero-copy .meta,.hero-copy .actions{justify-content:center}}
+</style>
+</head>
+<body>
+<header><nav class="nav">
+  <a class="brand" href="#" onclick="showHome();return false">LIMIT <span>ONE</span> ZERO ONE</a>
+  <div class="navlinks"><a href="#chapters">CHAPTERS</a><a href="#manage">MANAGE</a></div>
+</nav></header>
+<main class="wrap">
+  <section class="hero" id="home">
+    <div class="cover" id="coverBox"><span>YOUR MANGA COVER<br><small>Upload it below</small></span></div>
+    <div class="hero-copy">
+      <div class="eyebrow">ORIGINAL MANGA SERIES</div>
+      <h1>LIMIT ONE ZERO ONE</h1>
+      <p class="description" id="description">A new story begins here. Add your manga synopsis, cover art, and chapters using the Manage section below. Your uploaded images are saved in this browser on this device.</p>
+      <div class="meta"><span class="tag">MANGA</span><span class="tag">ACTION</span><span class="tag">ONGOING</span></div>
+      <div class="actions"><button class="btn" onclick="document.getElementById('chapters').scrollIntoView({behavior:'smooth'})">READ CHAPTERS</button><button class="btn secondary" onclick="document.getElementById('manage').scrollIntoView({behavior:'smooth'})">MANAGE MANGA</button></div>
+    </div>
+  </section>
+
+  <section id="chapters">
+    <div class="section-head"><div><h2>CHAPTERS</h2><div class="muted" id="chapterCount">0 chapters available</div></div>
+      <div class="chapter-tools"><button class="btn secondary" onclick="sortChapters()">SORT: NEWEST</button></div>
+    </div>
+    <div class="chapter-list" id="chapterList"><div class="empty">No chapters added yet. Add your first chapter in the Manage section.</div></div>
+  </section>
+
+  <section class="reader" id="reader">
+    <div class="readerbar"><div><div class="eyebrow">NOW READING</div><h2 id="readerTitle" style="margin:3px 0">Chapter</h2></div>
+      <div class="actions"><button class="btn secondary" id="prevBtn" onclick="moveChapter(-1)">PREVIOUS</button><button class="btn" id="nextBtn" onclick="moveChapter(1)">NEXT</button></div>
+    </div>
+    <div class="pages" id="pages"><div class="page-placeholder">Chapter pages will appear here.</div></div>
+    <div class="readerbar" style="margin-top:14px"><button class="btn secondary" onclick="showHome()">BACK TO CHAPTERS</button><div class="actions"><button class="btn secondary" onclick="moveChapter(-1)">PREVIOUS</button><button class="btn" onclick="moveChapter(1)">NEXT</button></div></div>
+  </section>
+
+  <section class="admin" id="manage">
+    <h2>Manage your manga</h2><p class="muted">Upload your own cover and chapter pages. Images are stored locally in this browser using IndexedDB.</p>
+    <div class="admin-grid">
+      <div class="field"><label for="coverUpload">1. Manga cover image</label><input id="coverUpload" type="file" accept="image/*"><p class="hint">Choose JPG, PNG or WEBP. The cover updates automatically.</p></div>
+      <div class="field"><label for="synopsis">2. Manga description</label><input id="synopsis" type="text" placeholder="Write your manga description"><button class="btn secondary" onclick="saveDescription()">SAVE DESCRIPTION</button></div>
+      <div class="field"><label for="chapterNumber">3. Add a chapter</label><input id="chapterNumber" type="number" min="1" placeholder="Chapter number"><input id="chapterName" type="text" placeholder="Chapter title (optional)"><input id="chapterUpload" type="file" accept="image/*" multiple><button class="btn" onclick="addChapter()">ADD CHAPTER</button><p class="hint">Select multiple page images together. They will be displayed in the order selected.</p></div>
+      <div class="field"><label>4. Browser storage</label><p class="muted">Your uploads stay on this device and browser. They are not automatically published online or shared with visitors.</p><button class="btn secondary" onclick="exportBackup()">EXPORT BACKUP INFO</button><button class="btn secondary" style="margin-left:6px" onclick="clearAll()">CLEAR ALL DATA</button><p class="hint">To publish this website for everyone, you will later need hosting and online image storage.</p></div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="year"></span> LIMIT ONE ZERO ONE · All rights reserved.</footer>
+<script>
+const DB_NAME='limit-one-zero-one-db', STORE='assets';
+let db, chapters=[], currentIndex=0, newestFirst=true;
+document.getElementById('year').textContent=new Date().getFullYear();
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>req.result.createObjectStore(STORE);req.onsuccess=()=>{db=req.result;resolve(db)};req.onerror=()=>reject(req.error)})}
+function put(key,value){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(value,key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+function get(key){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly');const r=tx.objectStore(STORE).get(key);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function del(key){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+function allKeys(){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly');const r=tx.objectStore(STORE).getAllKeys();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function fileToData(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+function showCover(data){const box=document.getElementById('coverBox');box.innerHTML=data?'<img alt="Manga cover">':'<span>YOUR MANGA COVER<br><small>Upload it below</small></span>';if(data)box.querySelector('img').src=data}
+async function init(){await openDB();const cover=await get('cover');if(cover)showCover(cover);const desc=await get('description');if(desc){document.getElementById('description').textContent=desc;document.getElementById('synopsis').value=desc}await loadChapters()}
+async function loadChapters(){const keys=await allKeys();chapters=[];for(const key of keys){if(String(key).startsWith('chapter:')){const c=await get(key);if(c)chapters.push(c)}}chapters.sort((a,b)=>newestFirst?b.number-a.number:a.number-b.number);renderChapters()}
+function renderChapters(){const list=document.getElementById('chapterList');document.getElementById('chapterCount').textContent=chapters.length+' chapter'+(chapters.length===1?'':'s')+' available';if(!chapters.length){list.innerHTML='<div class="empty">No chapters added yet. Add your first chapter in the Manage section.</div>';return}list.innerHTML='';chapters.forEach((c,i)=>{const el=document.createElement('div');el.className='chapter';el.innerHTML='<div><strong>Chapter '+c.number+(c.title?' — '+escapeHTML(c.title):'')+'</strong><small>'+c.pages.length+' page image(s)</small></div><span>READ →</span>';el.onclick=()=>readChapter(i);list.appendChild(el)})}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function readChapter(i){currentIndex=i;const c=chapters[i];document.getElementById('readerTitle').textContent='Chapter '+c.number+(c.title?' — '+c.title:'');const pages=document.getElementById('pages');pages.innerHTML='';for(const src of c.pages){const img=document.createElement('img');img.src=src;img.alt='Manga page';pages.appendChild(img)}if(!c.pages.length)pages.innerHTML='<div class="page-placeholder">No page images uploaded for this chapter.</div>';document.getElementById('reader').classList.add('active');document.getElementById('reader').scrollIntoView({behavior:'smooth'});document.getElementById('prevBtn').disabled=i>=chapters.length-1;document.getElementById('nextBtn').disabled=i<=0}
+function moveChapter(delta){const i=currentIndex-delta;if(i>=0&&i<chapters.length)readChapter(i)}
+function showHome(){document.getElementById('reader').classList.remove('active');document.getElementById('home').scrollIntoView({behavior:'smooth'})}
+function sortChapters(){newestFirst=!newestFirst;loadChapters()}
+document.getElementById('coverUpload').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;const data=await fileToData(f);await put('cover',data);showCover(data);e.target.value=''});
+async function saveDescription(){const v=document.getElementById('synopsis').value.trim();if(!v)return alert('Please write a description first.');await put('description',v);document.getElementById('description').textContent=v;alert('Description saved on this device.')}
+async function addChapter(){const n=Number(document.getElementById('chapterNumber').value),title=document.getElementById('chapterName').value.trim(),files=[...document.getElementById('chapterUpload').files];if(!Number.isInteger(n)||n<1)return alert('Enter a valid chapter number.');if(!files.length)return alert('Choose at least one page image.');const pages=[];for(const f of files){if(!f.type.startsWith('image/'))continue;pages.push(await fileToData(f))}if(!pages.length)return alert('No valid image files selected.');const c={number:n,title,pages};await put('chapter:'+n,c);document.getElementById('chapterNumber').value='';document.getElementById('chapterName').value='';document.getElementById('chapterUpload').value='';await loadChapters();alert('Chapter saved on this device.')}
+async function exportBackup(){const keys=await allKeys();const info={website:'LIMIT ONE ZERO ONE',savedItems:keys.length,note:'Images are stored in this browser IndexedDB. This file is only an inventory; it does not contain image data.'};const blob=new Blob([JSON.stringify(info,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='limit-one-zero-one-backup-info.json';a.click();URL.revokeObjectURL(a.href)}
+async function clearAll(){if(!confirm('Delete the cover, description and all chapters saved in this browser?'))return;const keys=await allKeys();for(const k of keys)await del(k);chapters=[];showCover(null);document.getElementById('description').textContent='A new story begins here. Add your manga synopsis, cover art, and chapters using the Manage section below. Your uploaded images are saved in this browser on this device.';renderChapters();document.getElementById('reader').classList.remove('active')}
+init().catch(()=>alert('Could not open local browser storage. Please use a modern browser with IndexedDB enabled.'));
+</script>
+</body>
+</html>
